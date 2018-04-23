@@ -52,7 +52,7 @@ func dbFunc(c *gin.Context) {
 	defer rows.Close()
 	for rows.Next() {
 		var tick time.Time
-		if err != rows.Scan(&tick); err != nil {
+		if err := rows.Scan(&tick); err != nil {
 			c.String(http.StatusInternalServerError,
 				fmt.Sprintf("Error scanning ticks: %q", err))
 			return
