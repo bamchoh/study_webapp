@@ -50,6 +50,7 @@ func dbFunc(c *gin.Context) {
 	}
 
 	defer rows.Close()
+	var tickList []string
 	for rows.Next() {
 		var tick time.Time
 		if err := rows.Scan(&tick); err != nil {
@@ -57,8 +58,12 @@ func dbFunc(c *gin.Context) {
 				fmt.Sprintf("Error scanning ticks: %q", err))
 			return
 		}
-		c.String(http.StatusOK, fmt.Sprintf("[GITHUB] Read from DB: %s\n", tick.String()))
+		tickList = append(tickList, tick.String())
 	}
+	c.HTML(http.StatusOK, "db.tmpl.html", gin.H{
+		"title": "hogehoge",
+		"list":  tickList,
+	})
 }
 
 func main() {
