@@ -144,6 +144,6 @@
 	"rootPath": "github.com/bamchoh/study_webapp",
 	"heroku": {
 		"install":["./..."],
-		"goVersion":"go1.9"
+		"goVersion":"go1.10"
 	}
 }
