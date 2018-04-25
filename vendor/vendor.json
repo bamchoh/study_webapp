@@ -1,7 +1,29 @@
 {
 	"comment": "",
+	"heroku": {
+		"goVersion": "go1.9",
+		"install": [
+			"./..."
+		]
+	},
 	"ignore": "test",
 	"package": [
+		{
+			"path": "appengine/cloudsql",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "rmNwGgFJAcDxUGF5yB/zqhQPxCA=",
+			"path": "bitbucket.org/liamstask/goose/cmd/goose",
+			"revision": "8488cc47d90c8a502b1c41a462a6d9cc8ee0a895",
+			"revisionTime": "2015-01-15T23:40:39Z"
+		},
+		{
+			"checksumSHA1": "jdqLDQw64kBjkU7LPK7C+Qwj7W8=",
+			"path": "bitbucket.org/liamstask/goose/lib/goose",
+			"revision": "8488cc47d90c8a502b1c41a462a6d9cc8ee0a895",
+			"revisionTime": "2015-01-15T23:40:39Z"
+		},
 		{
 			"checksumSHA1": "Qq7Gzany1n6gK6hpZQq9UXFhGGo=",
 			"comment": "v1.0rc1-110-g4cc2de6",
@@ -21,6 +43,12 @@
 			"revision": "4cc2de6207f4128624cbdd16be30f64966c67c08"
 		},
 		{
+			"checksumSHA1": "JXVlDIoOSmyi1QAgDI455Wsr/gY=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "3287d94d4c6a48a63e16fffaabf27ab20203af2a",
+			"revisionTime": "2018-04-13T18:15:57Z"
+		},
+		{
 			"checksumSHA1": "MFkrEy77SoBbEtLd3Ros+NZO35w=",
 			"path": "github.com/heroku/x/hmetrics",
 			"revision": "705849e307dd75c91728463dea5bfd08ef493e64",
@@ -31,6 +59,12 @@
 			"path": "github.com/heroku/x/hmetrics/onload",
 			"revision": "705849e307dd75c91728463dea5bfd08ef493e64",
 			"revisionTime": "2017-10-04T17:02:40Z"
+		},
+		{
+			"checksumSHA1": "p+Bj1OSkp9/zxr6oZGzBAvYsdm0=",
+			"path": "github.com/kylelemons/go-gypsy/yaml",
+			"revision": "08cad365cd28a7fba23bb1e57aa43c5e18ad8bb8",
+			"revisionTime": "2016-09-05T02:00:20Z"
 		},
 		{
 			"checksumSHA1": "F7vsuKOVSMnFSi90odRxfhBEBeA=",
@@ -60,15 +94,45 @@
 			"revision": "7fcbc72f853b92b5720db4a6b8482be612daef24"
 		},
 		{
+			"checksumSHA1": "VibJh/oNzIw3tY0PCgReKMzrxf0=",
+			"path": "github.com/mattn/go-sqlite3",
+			"revision": "a72efd674f654961a11ac41aae72c0e43963fe6c",
+			"revisionTime": "2018-04-19T07:32:57Z"
+		},
+		{
 			"checksumSHA1": "OnCHuYYPIZycyCb0gQ8Ua+Blp3U=",
 			"path": "github.com/russross/blackfriday",
 			"revision": "55d61fa8aa702f59229e6cff85793c22e580eaf5",
 			"revisionTime": "2018-02-18T09:36:01Z"
 		},
 		{
+			"checksumSHA1": "2TJV/f15/49inUOLH5hJK+nkRNw=",
+			"path": "github.com/ziutek/mymysql/godrv",
+			"revision": "ff6cc86d3d933e6c0e3185a19fb46e171a7651b2",
+			"revisionTime": "2017-12-17T23:40:33Z"
+		},
+		{
+			"checksumSHA1": "oRXWHvweXZQ99jtuUtYVvKv8oI0=",
+			"path": "github.com/ziutek/mymysql/mysql",
+			"revision": "ff6cc86d3d933e6c0e3185a19fb46e171a7651b2",
+			"revisionTime": "2017-12-17T23:40:33Z"
+		},
+		{
+			"checksumSHA1": "jV9XesO+NZ2UqmMw3zoUwM4UmAE=",
+			"path": "github.com/ziutek/mymysql/native",
+			"revision": "ff6cc86d3d933e6c0e3185a19fb46e171a7651b2",
+			"revisionTime": "2017-12-17T23:40:33Z"
+		},
+		{
 			"checksumSHA1": "hKZGpbFuCrkE4s1vxubKK1aFlfI=",
 			"path": "golang.org/x/net/context",
 			"revision": "d9558e5c97f85372afee28cf2b6059d7d3818919"
+		},
+		{
+			"checksumSHA1": "LiyXfqOzaeQ8vgYZH3t2hUEdVTw=",
+			"path": "google.golang.org/appengine/cloudsql",
+			"revision": "0a24098c0ec68416ec050f567f75df563d6b231e",
+			"revisionTime": "2018-04-05T22:03:34Z"
 		},
 		{
 			"checksumSHA1": "P7dBpV3QA/3GJWGNwb9Hn3BzCQs=",
@@ -77,5 +141,9 @@
 			"revision": "d627af88ac021317a280d320986282a6dc97549a"
 		}
 	],
-	"rootPath": "github.com/heroku/go-getting-started"
+	"rootPath": "github.com/bamchoh/study_webapp"
+	"heroku": {
+		"install":["./..."],
+		"goVersion":"go1.9"
+	}
 }
