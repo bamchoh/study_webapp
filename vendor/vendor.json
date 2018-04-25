@@ -3,8 +3,7 @@
 	"heroku": {
 		"goVersion": "go1.10",
 		"install": [
-			"./...",
-			"./vendor/bitbucket.org/liamstask/goose/cmd/goose"
+			"./..."
 		]
 	},
 	"ignore": "test",
