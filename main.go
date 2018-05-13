@@ -60,6 +60,10 @@ func dbFunc(c *gin.Context) {
 	})
 }
 
+func loginFunc(c *gin.Context) {
+	c.Redirect(http.StatusMovedPermanently, "/")
+}
+
 func main() {
 	var err error
 	port := os.Getenv("PORT")
@@ -83,6 +87,7 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 	router.LoadHTMLGlob("templates/*.tmpl.html")
+	router.Static("/assets", "./assets")
 	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
@@ -92,6 +97,8 @@ func main() {
 	router.GET("/mark", func(c *gin.Context) {
 		c.String(http.StatusOK, string(blackfriday.MarkdownBasic([]byte("**hi!**"))))
 	})
+
+	router.POST("/login", loginFunc)
 
 	router.GET("/repeat", repeatHandler)
 	router.GET("/db", dbFunc)
