@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"database/sql"
+	"errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -10,10 +11,12 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/bamchoh/study_webapp/dao"
+	"github.com/bamchoh/study_webapp/models"
+	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
 	_ "github.com/lib/pq"
-	"github.com/russross/blackfriday"
 )
 
 var (
@@ -60,8 +63,58 @@ func dbFunc(c *gin.Context) {
 	})
 }
 
-func loginFunc(c *gin.Context) {
+func singinFunc(c *gin.Context) {
+	email := c.PostForm("email")
+	password := c.PostForm("password")
+
+	builder := &dao.UserDao{DB: db}
+
+	user, err := builder.Get(email, password)
+	if err != nil {
+		log.Println("Get", err)
+		err = errors.New("Signin was failed")
+		c.HTML(http.StatusInternalServerError,
+			"index.tmpl.html",
+			fmt.Sprintf("Error Signin: %q", err))
+		return
+	}
+
 	c.Redirect(http.StatusMovedPermanently, "/")
+}
+
+func signoutFunc(c *gin.Context) {
+	c.Redirect(http.StatusMovedPermanently, "/")
+}
+
+func signupFunc(c *gin.Context) {
+	id := c.PostForm("id")
+	name := c.PostForm("name")
+	email := c.PostForm("email")
+	password := c.PostForm("password")
+	confirmpassword := c.PostForm("confirmpassword")
+
+	builder := &dao.UserDao{DB: db}
+
+	user := models.User{
+		ID:    id,
+		Name:  name,
+		Email: email,
+	}
+
+	if err := builder.Create(user, password, confirmpassword); err != nil {
+		log.Println("Create", err)
+		err = errors.New("User creation was failed")
+		c.HTML(http.StatusInternalServerError,
+			"signup.tmpl.html",
+			fmt.Sprintf("Error Signup: %q", err))
+		return
+	}
+
+	c.Redirect(http.StatusMovedPermanently, "/")
+}
+
+type server struct {
+	router gin.IRouter
 }
 
 func main() {
@@ -84,24 +137,15 @@ func main() {
 		log.Fatalf("Error opening database: %q", err)
 	}
 
-	router := gin.New()
-	router.Use(gin.Logger())
-	router.LoadHTMLGlob("templates/*.tmpl.html")
-	router.Static("/assets", "./assets")
-	router.Static("/static", "static")
+	engine := gin.New()
+	store := sessions.NewCookieStore([]byte("secret"))
+	engine.Use(sessions.Sessions("SessionName", store))
+	engine.Use(gin.Logger())
+	engine.LoadHTMLGlob("templates/*.tmpl.html")
+	engine.Static("/assets", "./assets")
+	engine.Static("/static", "static")
 
-	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.tmpl.html", nil)
-	})
+	router := server{engine}
 
-	router.GET("/mark", func(c *gin.Context) {
-		c.String(http.StatusOK, string(blackfriday.MarkdownBasic([]byte("**hi!**"))))
-	})
-
-	router.POST("/login", loginFunc)
-
-	router.GET("/repeat", repeatHandler)
-	router.GET("/db", dbFunc)
-
-	router.Run(":" + port)
+	engine.Run(":" + port)
 }

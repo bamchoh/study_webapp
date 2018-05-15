@@ -25,10 +25,19 @@
 			"revisionTime": "2015-01-15T23:40:39Z"
 		},
 		{
-			"checksumSHA1": "Qq7Gzany1n6gK6hpZQq9UXFhGGo=",
+			"checksumSHA1": "QeKwBtN2df+j+4stw3bQJ6yO4EY=",
+			"path": "github.com/gin-contrib/sse",
+			"revision": "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae",
+			"revisionTime": "2017-01-09T09:34:21Z"
+		},
+		{
+			"checksumSHA1": "cpELhz30Sco7IBwvI6FyuShnjnQ=",
 			"comment": "v1.0rc1-110-g4cc2de6",
 			"path": "github.com/gin-gonic/gin",
-			"revision": "4cc2de6207f4128624cbdd16be30f64966c67c08"
+			"revision": "d459835d2b077e44f7c9b453505ee29881d5d12d",
+			"revisionTime": "2017-07-02T09:28:26Z",
+			"version": "v1",
+			"versionExact": "v1.2"
 		},
 		{
 			"checksumSHA1": "M8Z61f8GZs6CO23wP+ekRgZEo+w=",
