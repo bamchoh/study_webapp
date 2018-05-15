@@ -2,6 +2,23 @@
 <html lang="en">
   {{template "header.tmpl.html"}}
   <body class="text-center">
-	  <a href="/signup">signup</a>
+  <a href="/signup">signup</a>
+  <link href="/static/css/signup.css" rel="stylesheet">
+  {{if .alive}}
+    <form class="form-signup" method="POST" action="/signout">
+		<button type="submit">Sign Out</button>
+    </form>
+  {{else}}
+    <form class="form-signup" method="POST" action="/signin">
+      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2018-</p>
+    </form>
+  {{end}}
   </body>
 </html>
