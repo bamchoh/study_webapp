@@ -13,18 +13,18 @@ body {
   padding-top: 40px;
 }
 
-.div-body .form-signup {
+.div-body .form-login {
   width: 100%;
   max-width: 330px;
   padding: 15px;
   margin: auto;
 }
 
-.div-body .form-signup .checkbox {
+.div-body .form-login .checkbox {
   font-weight: 400;
 }
 
-.div-body .form-signup .form-control {
+.div-body .form-login .form-control {
   position: relative;
   box-sizing: border-box;
   height: auto;
@@ -32,26 +32,19 @@ body {
   font-size: 16px;
 }
 
-.div-body .form-signup .form-control:focus {
+.div-body .form-login .form-control:focus {
   z-index: 2;
 }
 
-.div-body .form-signup input[id="inputID"] {
+.div-body .form-login input[id="inputEmail"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.div-body .form-signup input[id="inputName"],input[id="inputEmail"],input[id="inputPassword"] {
-  margin-bottom: -1px;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.div-body .form-signup input[id="confirmPassword"] {
+.div-body .form-login input[id="inputPassword"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
