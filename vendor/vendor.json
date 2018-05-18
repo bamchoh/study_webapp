@@ -89,17 +89,29 @@
 			"revisionTime": "2018-05-12T03:00:42Z"
 		},
 		{
-			"path": "github.com/gin-gonic/gin/json",
-			"revision": "d459835d2b077e44f7c9b453505ee29881d5d12d",
-			"version": "v1.2",
-			"versionExact": "v1.2"
-		},
-		{
 			"checksumSHA1": "DGs8sdsCkNHsU9+fQMM9XHb+ZCE=",
 			"comment": "v1.0rc1-110-g4cc2de6",
 			"path": "github.com/gin-gonic/gin/render",
 			"revision": "bf7803815b0baa22ff7a10457932882dfbf09925",
 			"revisionTime": "2018-05-12T03:00:42Z"
+		},
+		{
+			"checksumSHA1": "b4DmyMT9bicTRVJw1hJXHLhIH+0=",
+			"path": "github.com/go-playground/locales",
+			"revision": "f63010822830b6fe52288ee52d5a1151088ce039",
+			"revisionTime": "2018-03-23T16:04:04Z"
+		},
+		{
+			"checksumSHA1": "JgF260rC9YpWyY5WEljjimWLUXs=",
+			"path": "github.com/go-playground/locales/currency",
+			"revision": "f63010822830b6fe52288ee52d5a1151088ce039",
+			"revisionTime": "2018-03-23T16:04:04Z"
+		},
+		{
+			"checksumSHA1": "7QcjNTtW0Rc/5BPw1MPaQ6YNjso=",
+			"path": "github.com/go-playground/universal-translator",
+			"revision": "71201497bace774495daed26a3874fd339e0b538",
+			"revisionTime": "2017-03-27T19:17:03Z"
 		},
 		{
 			"checksumSHA1": "JXVlDIoOSmyi1QAgDI455Wsr/gY=",
@@ -241,6 +253,12 @@
 			"path": "gopkg.in/go-playground/validator.v8",
 			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
 			"revisionTime": "2017-07-30T05:02:35Z"
+		},
+		{
+			"checksumSHA1": "XnHRAhXZ+XqNUn0DTboOEJgkWpM=",
+			"path": "gopkg.in/go-playground/validator.v9",
+			"revision": "ffe836d7363bc7ab3f56d2fc90ce09bfb5a0c2c5",
+			"revisionTime": "2018-05-09T16:00:03Z"
 		},
 		{
 			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
