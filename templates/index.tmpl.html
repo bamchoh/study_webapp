@@ -22,35 +22,35 @@
 		</nav>
 
 		{{if .alive}}
-		<div class="container">
-			<!-- Example row of columns -->
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<h5 class="card-subtitle mb-2 text-muted">Card subtitle</h5>
-						<img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="75" height="75">
-						<p>Test Test Test</p>
-					</div>
-				</div>
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<h5 class="card-subtitle mb-2 text-muted">Card subtitle</h5>
-						<img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="75" height="75">
-						<p>Test Test Test</p>
-					</div>
-				</div>
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<h5 class="card-subtitle mb-2 text-muted">Card subtitle</h5>
-						<img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="75" height="75">
-						<p>Test Test Test</p>
-					</div>
-				</div>
-
-			<hr>
-		</div> <!-- /container -->
+		<main role="main" class="container">
+		<div class="my-3 p-3 bg-white rounded box-shadow">
+			<h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+			<div class="media text-muted pt-3">
+				<img class="mr-2 rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="50" height="50">
+				<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-left">
+				<strong class="d-block text-gray-dark">@{{ .user_id }}</strong>
+				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+				</p>
+			</div>
+			<div class="media text-muted pt-3">
+				<img class="mr-2 rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="50" height="50">
+				<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-left">
+				<strong class="d-block text-gray-dark">@{{ .user_id }}</strong>
+				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+				</p>
+			</div>
+			<div class="media text-muted pt-3">
+				<img class="mr-2 rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="50" height="50">
+				<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-left">
+				<strong class="d-block text-gray-dark">@{{ .user_id }}</strong>
+				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+				</p>
+			</div>
+			<small class="d-block text-right mt-3">
+				<a href="#">All updates</a>
+			</small>
+		</div>
+		</main>
 		{{else}}
 		<div class="div-body">
 			<form class="form-login" method="POST" action="/signin">

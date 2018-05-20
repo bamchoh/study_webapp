@@ -31,8 +31,8 @@ type server struct {
 func (s *server) appIndex(c *gin.Context) {
 	session := sessions.Default(c)
 	alive := session.Get("alive")
-	fmt.Println("alive", alive)
-	c.HTML(http.StatusOK, "index.tmpl.html", gin.H{"alive": alive})
+	user_id := session.Get("user_id")
+	c.HTML(http.StatusOK, "index.tmpl.html", gin.H{"alive": alive, "user_id": user_id})
 }
 
 func (s *server) signupGet(c *gin.Context) {
