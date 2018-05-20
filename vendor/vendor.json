@@ -138,6 +138,12 @@
 			"revisionTime": "2017-03-27T19:17:03Z"
 		},
 		{
+			"checksumSHA1": "IOvhb7QeZTt4cQENU7R4K/Ig19Q=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "92a288d2426bb79e058d61dc5009a67e0568c431",
+			"revisionTime": "2018-05-19T18:41:39Z"
+		},
+		{
 			"checksumSHA1": "3Xl2eFF4Q+bZkX2RIrIZUkYDRdk=",
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "70c277a8a150a8e069492e6600926300405c2884",
@@ -234,6 +240,18 @@
 		{
 			"checksumSHA1": "2TJV/f15/49inUOLH5hJK+nkRNw=",
 			"path": "github.com/ziutek/mymysql/godrv",
+			"revision": "ff6cc86d3d933e6c0e3185a19fb46e171a7651b2",
+			"revisionTime": "2017-12-17T23:40:33Z"
+		},
+		{
+			"checksumSHA1": "oRXWHvweXZQ99jtuUtYVvKv8oI0=",
+			"path": "github.com/ziutek/mymysql/mysql",
+			"revision": "ff6cc86d3d933e6c0e3185a19fb46e171a7651b2",
+			"revisionTime": "2017-12-17T23:40:33Z"
+		},
+		{
+			"checksumSHA1": "jV9XesO+NZ2UqmMw3zoUwM4UmAE=",
+			"path": "github.com/ziutek/mymysql/native",
 			"revision": "ff6cc86d3d933e6c0e3185a19fb46e171a7651b2",
 			"revisionTime": "2017-12-17T23:40:33Z"
 		},
