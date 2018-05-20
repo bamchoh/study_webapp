@@ -1,5 +1,11 @@
 {
 	"comment": "",
+	"heroku": {
+		"goVersion": "go1.10",
+		"install": {
+			"./..."
+		}
+	},
 	"ignore": "test",
 	"package": [
 		{
@@ -75,18 +81,6 @@
 			"path": "github.com/gin-contrib/sse",
 			"revision": "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae",
 			"revisionTime": "2017-01-09T09:34:21Z"
-		},
-		{
-			"checksumSHA1": "zJFlMkX3DuTKve/LstUAScAXa1o=",
-			"path": "github.com/gin-gonic/contrib",
-			"revision": "33543d11593dd66df698cae8b4c776faa0827359",
-			"revisionTime": "2018-04-30T01:04:56Z",
-			"version": "v1.2"
-		},
-		{
-			"path": "github.com/gin-gonic/contrib/sessions",
-			"revision": "v1.2",
-			"version": "v1.2"
 		},
 		{
 			"checksumSHA1": "cpELhz30Sco7IBwvI6FyuShnjnQ=",
