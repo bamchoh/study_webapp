@@ -1,2 +1,2 @@
-release: goose postgresql $DATABASE_URL up
+release: goose up
 web: study_webapp
