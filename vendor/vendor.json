@@ -121,6 +121,12 @@
 			"versionExact": "v1.2"
 		},
 		{
+			"checksumSHA1": "qHpoguf0n1mueKbYN5/Cr10461M=",
+			"path": "github.com/heroku/x/hmetrics",
+			"revision": "e027b57be83570b92aeefcdad710e38695d5999b",
+			"revisionTime": "2018-04-13T17:19:39Z"
+		},
+		{
 			"checksumSHA1": "2eVQMk8j6gpl/qT6OpZmBJjsw2s=",
 			"path": "github.com/heroku/x/hmetrics/onload",
 			"revision": "e027b57be83570b92aeefcdad710e38695d5999b",
@@ -133,8 +139,20 @@
 			"revisionTime": "2018-04-24T00:46:23Z"
 		},
 		{
+			"checksumSHA1": "p+Bj1OSkp9/zxr6oZGzBAvYsdm0=",
+			"path": "github.com/kylelemons/go-gypsy/yaml",
+			"revision": "08cad365cd28a7fba23bb1e57aa43c5e18ad8bb8",
+			"revisionTime": "2016-09-05T02:00:20Z"
+		},
+		{
 			"checksumSHA1": "F7vsuKOVSMnFSi90odRxfhBEBeA=",
 			"path": "github.com/lib/pq",
+			"revision": "d34b9ff171c21ad295489235aec8b6626023cd04",
+			"revisionTime": "2018-03-27T07:18:24Z"
+		},
+		{
+			"checksumSHA1": "AU3fA8Sm33Vj9PBoRPSeYfxLRuE=",
+			"path": "github.com/lib/pq/oid",
 			"revision": "d34b9ff171c21ad295489235aec8b6626023cd04",
 			"revisionTime": "2018-03-27T07:18:24Z"
 		},
