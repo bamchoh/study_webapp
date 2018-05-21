@@ -103,6 +103,19 @@ func (s *server) signoutPost(c *gin.Context) {
 	c.Redirect(http.StatusMovedPermanently, "/")
 }
 
+func (s *server) settingsGet(c *gin.Context) {
+	session := sessions.Default(c)
+	alive := session.Get("alive")
+	if alive != nil {
+		id := session.Get("user_id")
+		if id != nil {
+			c.String(http.StatusOK, fmt.Sprintf("test: %s", id))
+			return
+		}
+	}
+	c.Redirect(http.StatusOK, "/")
+}
+
 func main() {
 	var err error
 	port := os.Getenv("PORT")
