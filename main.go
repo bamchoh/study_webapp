@@ -151,7 +151,9 @@ func main() {
 			}
 		}
 		if !isssl {
-			c.String(http.StatusInternalServerError, "http does not support. please access over https")
+			req := c.Request
+			c.Redirect(http.StatusMovedPermanently, "https://"+req.Host+req.URL.Path)
+			// c.String(http.StatusInternalServerError, "http does not support. please access over https")
 			c.Abort()
 		}
 	})
