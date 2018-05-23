@@ -124,6 +124,11 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 
+	proto := os.Getenv("PROTO")
+	if proto == "" {
+		proto = "https"
+	}
+
 	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		log.Fatalf("Error opening database: %q", err)
@@ -133,6 +138,23 @@ func main() {
 	store := cookie.NewStore([]byte("secret"))
 	engine.Use(sessions.Sessions("SessionName", store))
 	engine.Use(gin.Logger())
+	engine.Use(func(c *gin.Context) {
+		if proto != "https" {
+			return
+		}
+
+		header := c.Request.Header
+		isssl := false
+		if params, ok := header["X-Fowarded-Proto"]; ok {
+			if len(params) != 0 && params[0] == "https" {
+				isssl = true
+			}
+		}
+		if !isssl {
+			c.String(http.StatusInternalServerError, "http does not support. please access over https")
+			c.Abort()
+		}
+	})
 	engine.LoadHTMLGlob("templates/*.tmpl.html")
 	engine.Static("/assets", "./assets")
 	engine.Static("/static", "static")
