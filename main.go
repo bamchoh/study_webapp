@@ -152,9 +152,11 @@ func main() {
 		}
 		if !isssl {
 			req := c.Request
-			c.Redirect(http.StatusMovedPermanently, "https://"+req.Host+req.URL.Path)
-			// c.String(http.StatusInternalServerError, "http does not support. please access over https")
-			c.Abort()
+			loc := "https://" + req.Host + req.URL.Path
+			if len(req.URL.RawQuery) > 0 {
+				loc += "?" + req.URL.RawQuery
+			}
+			c.Redirect(http.StatusMovedPermanently, loc)
 		}
 	})
 	engine.LoadHTMLGlob("templates/*.tmpl.html")
