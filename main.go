@@ -11,7 +11,7 @@ import (
 	"github.com/bamchoh/study_webapp/dao"
 	"github.com/bamchoh/study_webapp/models"
 	"github.com/gin-contrib/sessions"
-	"github.com/gin-contrib/sessions/cookie"
+	"github.com/gin-contrib/sessions/memstore"
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
 	_ "github.com/lib/pq"
@@ -31,8 +31,8 @@ type server struct {
 func (s *server) appIndex(c *gin.Context) {
 	session := sessions.Default(c)
 	alive := session.Get("alive")
-	user_id := session.Get("user_id")
-	c.HTML(http.StatusOK, "index.tmpl.html", gin.H{"alive": alive, "user_id": user_id})
+	userid := session.Get("user_id")
+	c.HTML(http.StatusOK, "index.tmpl.html", gin.H{"alive": alive, "user_id": userid})
 }
 
 func (s *server) signupGet(c *gin.Context) {
@@ -41,7 +41,7 @@ func (s *server) signupGet(c *gin.Context) {
 
 func (s *server) signupPost(c *gin.Context) {
 	id := c.PostForm("id")
-	name := c.PostForm("name")
+	name := id
 	email := c.PostForm("email")
 	password := c.PostForm("password")
 	confirmpassword := c.PostForm("confirmpassword")
@@ -78,7 +78,7 @@ func (s *server) signinPost(c *gin.Context) {
 		err = errors.New("Signin was failed")
 		c.HTML(http.StatusInternalServerError,
 			"index.tmpl.html",
-			fmt.Sprintf("Error Signin: %q", err))
+			gin.H{"alive": nil, "user_id": nil, "error": fmt.Sprintf("Error Signin: %q", err)})
 		return
 	}
 
@@ -135,8 +135,8 @@ func main() {
 	}
 
 	engine := gin.New()
-	store := cookie.NewStore([]byte("secret"))
-	engine.Use(sessions.Sessions("SessionName", store))
+	store := memstore.NewStore([]byte("secret"))
+	engine.Use(sessions.Sessions("mysession", store))
 	engine.Use(gin.Logger())
 	engine.Use(func(c *gin.Context) {
 		if proto != "https" {
