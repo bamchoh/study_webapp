@@ -145,7 +145,7 @@ func main() {
 
 		header := c.Request.Header
 		isssl := false
-		if params, ok := header["X-Fowarded-Proto"]; ok {
+		if params, ok := header["X-Forwarded-Proto"]; ok {
 			if len(params) != 0 && params[0] == "https" {
 				isssl = true
 			}
