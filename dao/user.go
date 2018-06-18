@@ -50,7 +50,7 @@ func (m *UserDao) Get(email, pass string) (user models.User, err error) {
 		return user, err
 	}
 
-	rows, err := m.DB.Query("SELECT id,name,email FROM users WHERE email = $1 AND password_hash = $2", email, hash)
+	rows, err := m.DB.Query("SELECT id,name,email FROM users WHERE email = $1 AND password_hash = $2 AND activated = true", email, hash)
 	if err != nil {
 		return user, err
 	}

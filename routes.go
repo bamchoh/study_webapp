@@ -8,4 +8,5 @@ func (s *server) routes() {
 	s.router.POST("/signin", s.signinPost)
 	s.router.POST("/signout", s.signoutPost)
 	s.router.GET("/settings", s.settingsGet)
+	s.router.GET("/token", s.tokenGet)
 }

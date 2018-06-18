@@ -15,6 +15,9 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
 	_ "github.com/lib/pq"
+	mailerLib "github.com/bamchoh/study_webapp/lib/email"
+	"github.com/bamchoh/study_webapp/lib/utils"
+	"github.com/bamchoh/study_webapp/lib/jwtgen"
 )
 
 type SessionInfo struct {
@@ -54,16 +57,48 @@ func (s *server) signupPost(c *gin.Context) {
 		Email: email,
 	}
 
-	if err := builder.Create(user, password, confirmpassword); err != nil {
+	errFn := func(c *gin.Context, err error) {
 		log.Println("Create", err)
 		err = errors.New("User creation was failed")
 		c.HTML(http.StatusInternalServerError,
 			"signup.tmpl.html",
 			fmt.Sprintf("Error Signup: %q", err))
+	}
+
+	if err := builder.Create(user, password, confirmpassword); err != nil {
+		errFn(c, err)
 		return
 	}
 
-	c.Redirect(http.StatusMovedPermanently, "/")
+	secretkey := utils.SecureRandomStr(64)
+
+	tokenstring, err := jwtgen.Generate(user, secretkey)
+	if err != nil {
+		errFn(c, err)
+		return
+	}
+
+	mailer := mailerLib.Email {
+		Password: "aivbhjftleabzefv",
+		Server: "smtp.gmail.com",
+		Port: 587,
+	}
+
+	from := "bamchoh@gmail.com"
+	to := "bamchoh@gmail.com"
+	title := "[仮登録完了]本登録にお進みください"
+	body := mailerLib.GenBody("./templates/signuptoken.tmpl.html", struct { Token string }{tokenstring})
+	err = mailer.Send(from, to, title, body)
+	if err != nil {
+		errFn(c, err)
+		return
+	}
+
+	c.Redirect(http.StatusMovedPermanently, "/token")
+}
+
+func (s *server) tokenGet(c *gin.Context) {
+	c.HTML(http.StatusOK, "token.tmpl.html", nil)
 }
 
 func (s *server) signinPost(c *gin.Context) {
